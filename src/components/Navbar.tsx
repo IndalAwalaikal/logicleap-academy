@@ -27,16 +27,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div
-              className="p-2 rounded-lg logo-glow"
-              style={{ background: "#F39C12" }}
-            >
-              <Code2 className="h-6 w-6 text-white" />
-            </div>
-            <span className="text-xl font-bold" style={{ color: "#F39C12" }}>
-              LogicLeap
-            </span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img
+              src="/logo.png"
+              alt="LogicLeap Logo"
+              className="h-12 object-contain transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Navigation */}
