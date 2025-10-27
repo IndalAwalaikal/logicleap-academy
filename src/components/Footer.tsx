@@ -35,7 +35,7 @@ const Footer = () => {
                 className="text-lg font-bold" 
                 style={{ color: '#F39C12' }}
               >
-                CodeSmart
+                LogicLeap
               </span>
             </Link>
             <p 
@@ -92,7 +92,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a
-                href="mailto:info@codesmart.com"
+                href="mailto:info@LogicLeap.com"
                 className="p-2.5 rounded-lg transition-all duration-300"
                 style={{ background: '#26A69A' }}
                 onMouseEnter={(e) => {
@@ -103,7 +103,7 @@ const Footer = () => {
                   e.currentTarget.style.background = '#26A69A';
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
-                aria-label="Email CodeSmart"
+                aria-label="Email LogicLeap"
                 title="Email"
               >
                 <Mail className="h-5 w-5 text-white" />
@@ -122,7 +122,7 @@ const Footer = () => {
                   e.currentTarget.style.background = '#26A69A';
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
-                aria-label="GitHub CodeSmart"
+                aria-label="GitHub LogicLeap"
                 title="GitHub"
               >
                 <Github className="h-5 w-5 text-white" />
@@ -141,7 +141,7 @@ const Footer = () => {
                   e.currentTarget.style.background = '#26A69A';
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
-                aria-label="Instagram CodeSmart"
+                aria-label="Instagram LogicLeap"
                 title="Instagram"
               >
                 <Instagram className="h-5 w-5 text-white" />
@@ -161,7 +161,7 @@ const Footer = () => {
             className="text-sm"
             style={{ color: '#BDC3C7' }}
           >
-            &copy; {currentYear} CodeSmart. Dibuat dengan{" "}
+            &copy; {currentYear} LogicLeap. Dibuat dengan{" "}
             <span style={{ color: '#F39C12' }}>❤️</span> untuk pendidikan Indonesia.
           </p>
         </div>

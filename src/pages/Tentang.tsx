@@ -53,7 +53,7 @@ const Tentang = () => {
       <section className="py-20 bg-gradient-hero">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-6 animate-fade-in">
-            <h1 className="text-5xl font-bold text-white">Tentang CodeSmart</h1>
+            <h1 className="text-5xl font-bold text-white">Tentang LogicLeap</h1>
             <p className="text-white/90 text-lg">
               Platform pembelajaran algoritma interaktif yang dibuat dengan cinta untuk pendidikan Indonesia
             </p>
@@ -68,7 +68,7 @@ const Tentang = () => {
             <h2 className="text-3xl font-bold mb-6">Cerita Kami</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                CodeSmart lahir dari keprihatinan kami melihat banyak siswa SMA dan SMK yang kesulitan 
+                LogicLeap lahir dari keprihatinan kami melihat banyak siswa SMA dan SMK yang kesulitan 
                 memahami konsep dasar pemrograman. Seringkali, materi yang ada terlalu teoritis atau 
                 terlalu teknis, sehingga membuat siswa kehilangan minat sebelum benar-benar memahami 
                 fundamental algoritma.
@@ -80,7 +80,7 @@ const Tentang = () => {
                 memberikan feedback yang konstruktif.
               </p>
               <p>
-                Dengan CodeSmart, kami berkomitmen untuk membuat pembelajaran pemrograman menjadi 
+                Dengan LogicLeap, kami berkomitmen untuk membuat pembelajaran pemrograman menjadi 
                 lebih accessible, engaging, dan efektif untuk generasi muda Indonesia. Platform ini 
                 sepenuhnya gratis dan dapat diakses kapan saja, di mana saja.
               </p>
@@ -91,7 +91,7 @@ const Tentang = () => {
         {/* Features Section */}
         <div className="mb-20">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl font-bold mb-4">Mengapa CodeSmart?</h2>
+            <h2 className="text-3xl font-bold mb-4">Mengapa LogicLeap?</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Berikut adalah nilai-nilai dan keunggulan yang kami tawarkan
             </p>
@@ -148,7 +148,7 @@ const Tentang = () => {
             </p>
             <div className="flex justify-center gap-4">
               <a
-                href="mailto:info@codesmart.com"
+                href="mailto:info@LogicLeap.com"
                 className="p-3 bg-card hover:bg-primary hover:text-white rounded-lg transition-all duration-300 shadow-soft hover:shadow-card"
               >
                 <Mail className="h-6 w-6" />

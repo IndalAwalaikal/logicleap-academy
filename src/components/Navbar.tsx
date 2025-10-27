@@ -35,7 +35,7 @@ const Navbar = () => {
               <Code2 className="h-6 w-6 text-white" />
             </div>
             <span className="text-xl font-bold" style={{ color: "#F39C12" }}>
-              CodeSmart
+              LogicLeap
             </span>
           </Link>
 

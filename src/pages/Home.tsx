@@ -237,7 +237,7 @@ const Home = () => {
               className="text-4xl md:text-5xl font-bold mb-4"
               style={{ color: "#FFFFFF" }}
             >
-              Kenapa Memilih <span style={{ color: "#F39C12" }}>CodeSmart</span>
+              Kenapa Memilih <span style={{ color: "#F39C12" }}>LogicLeap</span>
               ?
             </h2>
             <p
@@ -393,7 +393,7 @@ const Home = () => {
                 style={{ color: "#FFFFFF" }}
               >
                 Keuntungan Belajar di{" "}
-                <span style={{ color: "#F39C12" }}>CodeSmart</span>
+                <span style={{ color: "#F39C12" }}>LogicLeap</span>
               </h2>
               <p className="text-lg" style={{ color: "#ECF0F1" }}>
                 Dapatkan pengalaman belajar terbaik dengan berbagai benefit
