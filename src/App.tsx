@@ -8,6 +8,7 @@ import Materi from "./pages/Materi";
 import Kuis from "./pages/Kuis";
 import Latihan from "./pages/Latihan";
 import Tentang from "./pages/Tentang";
+import PenjelasanLengkap from "./pages/MateriLengkap";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/materi" element={<Materi />} />
+          <Route path="/materi-lengkap" element={<PenjelasanLengkap />} />
           <Route path="/kuis" element={<Kuis />} />
           <Route path="/latihan" element={<Latihan />} />
           <Route path="/tentang" element={<Tentang />} />
