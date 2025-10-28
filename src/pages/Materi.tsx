@@ -619,7 +619,7 @@ const MateriGolang = () => {
 
               {/* Tombol Uji Pemahaman */}
               <Link to={`/kuis?topic=${selectedTopic.id}`}>
-                <Button className="bg-gradient-to-r from-[#26a69a] to-[#f39c12] text-white hover:opacity-90 shadow-md">
+                <Button className="bg-[#26a69a] text-white hover:opacity-90 shadow-md">
                   Uji Pemahaman
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
