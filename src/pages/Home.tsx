@@ -181,7 +181,7 @@ const Home = () => {
                   Mulai Belajar Gratis
                 </button>
               </Link>
-              <Link to="/tentang">
+              <Link to="/latihan">
                 <button className="btn-secondary inline-flex items-center gap-2 text-lg">
                   <Sparkles className="h-5 w-5" />
                   Lihat Demo

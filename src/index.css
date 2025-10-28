@@ -492,3 +492,11 @@ a:focus-visible,
   background-color: rgba(243, 156, 18, 0.3);
   color: #ffffff;
 }
+
+/* Responsif untuk blok kode di mobile kecil */
+@media (max-width: 375px) {
+  pre[class*="language-"] {
+    font-size: 0.8125rem !important; /* 13px */
+    padding: 0.75rem !important;
+  }
+}

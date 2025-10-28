@@ -20,8 +20,8 @@ const Navbar = () => {
     <nav
       className="sticky top-0 z-50 backdrop-blur-md border-b shadow-lg"
       style={{
-        background: "rgba(44, 62, 80, 0.95)",
-        borderColor: "#34495E",
+        background: "rgba(58, 80, 107, 0.92)",
+        borderColor: "#4a6580",
       }}
     >
       <div className="container mx-auto px-4">

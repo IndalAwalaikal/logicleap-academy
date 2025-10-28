@@ -419,11 +419,10 @@ const Latihan = () => {
           <div className="text-center mb-8 animate-fade-in">
             <div className="flex items-center justify-center gap-3 mb-4">
               <Sparkles className="h-8 w-8" style={{ color: "#F39C12" }} />
-              <h1
-                className="text-4xl md:text-5xl font-bold"
-                style={{ color: "#FFFFFF" }}
-              >
-                Go <span style={{ color: "#26A69A" }}>Playground</span>
+              {/* Main Heading */}
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                <span style={{ color: "#FFFFFF" }}>Go </span>
+                <span style={{ color: "#F39C12" }}>Playground</span>
               </h1>
               <Sparkles className="h-8 w-8" style={{ color: "#26A69A" }} />
             </div>

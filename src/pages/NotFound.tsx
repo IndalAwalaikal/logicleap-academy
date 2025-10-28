@@ -22,7 +22,6 @@ const NotFound = () => {
       location.pathname
     );
 
-    // Auto redirect countdown
     const timer = setInterval(() => {
       setCountdown((prev) => {
         if (prev <= 1) {
@@ -38,49 +37,58 @@ const NotFound = () => {
   }, [location.pathname, navigate]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
 
       <div className="flex-1 flex items-center justify-center px-4 py-12 relative overflow-hidden">
-        {/* Animated background blobs */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div
-            className="absolute w-96 h-96 rounded-full opacity-20"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%)",
-              top: "-10%",
-              left: "-10%",
-              animation: "float 8s ease-in-out infinite",
-            }}
-          />
-          <div
-            className="absolute w-96 h-96 rounded-full opacity-20"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%)",
-              bottom: "-10%",
-              right: "-10%",
-              animation: "float 10s ease-in-out infinite",
-              animationDelay: "2s",
-            }}
-          />
+        {/* Background sesuai Home */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, #2C3E50 0%, #34495E 50%, #2C3E50 100%)",
+          }}
+        >
+          {/* Animated blobs (disesuaikan warna) */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div
+              className="absolute w-96 h-96 rounded-full opacity-20"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(38, 166, 154, 0.3) 0%, transparent 70%)",
+                top: "-10%",
+                left: "-10%",
+                animation: "float 8s ease-in-out infinite",
+              }}
+            />
+            <div
+              className="absolute w-96 h-96 rounded-full opacity-20"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(243, 156, 18, 0.3) 0%, transparent 70%)",
+                bottom: "-10%",
+                right: "-10%",
+                animation: "float 10s ease-in-out infinite",
+                animationDelay: "2s",
+              }}
+            />
+          </div>
         </div>
 
         <div className="relative z-10 text-center max-w-2xl mx-auto">
-          {/* 404 Icon */}
+          {/* 404 Icon — ganti warna dari merah ke teal */}
           <div className="mb-8 animate-bounce-slow">
-            <div className="w-32 h-32 mx-auto rounded-2xl flex items-center justify-center bg-gray-800/40 backdrop-blur-lg border border-blue-500/30 shadow-2xl">
-              <AlertCircle className="w-16 h-16 text-red-400" />
+            <div className="w-32 h-32 mx-auto rounded-2xl flex items-center justify-center bg-gray-800/40 backdrop-blur-lg border border-teal-500/30 shadow-2xl">
+              <AlertCircle className="w-16 h-16 text-teal-400" />
             </div>
           </div>
 
-          {/* 404 Text */}
+          {/* 404 Text — ganti gradient ke warna tema */}
           <h1
             className="text-7xl md:text-8xl font-extrabold mb-4 tracking-tight"
             style={{
               background:
-                "linear-gradient(to right, #ff6b6b, #feca57, #48dbfb)",
+                "linear-gradient(to right, #26A69A, #F39C12, #26A69A)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               textShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
@@ -90,8 +98,8 @@ const NotFound = () => {
             404
           </h1>
 
-          {/* Message Card */}
-          <div className="mb-6 p-6 rounded-2xl bg-gray-800/30 backdrop-blur-lg border border-blue-500/20 shadow-xl">
+          {/* Message Card — sesuaikan background dan border */}
+          <div className="mb-6 p-6 rounded-2xl bg-gray-800/30 backdrop-blur-lg border border-teal-500/20 shadow-xl">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
               Halaman Tidak Ditemukan!
             </h2>
@@ -100,13 +108,13 @@ const NotFound = () => {
             </p>
             <p className="text-sm text-gray-400">
               Path:{" "}
-              <code className="bg-gray-900/50 px-2 py-1 rounded text-blue-300">
+              <code className="bg-gray-900/50 px-2 py-1 rounded text-teal-300">
                 {location.pathname}
               </code>
             </p>
           </div>
 
-          {/* Countdown Bar */}
+          {/* Countdown Bar — sesuaikan warna gradient */}
           <div className="mb-8">
             <p className="text-gray-200 text-lg mb-2">
               Redirect otomatis dalam{" "}
@@ -125,7 +133,7 @@ const NotFound = () => {
             </div>
           </div>
 
-          {/* Action Buttons */}
+          {/* Action Buttons — sesuaikan dengan tombol Home */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <button
               onClick={() => navigate("/")}
@@ -153,7 +161,7 @@ const NotFound = () => {
             </button>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links — sesuaikan background */}
           <div className="mt-6">
             <p className="text-gray-400 mb-3 text-sm">Mungkin kamu mencari:</p>
             <div className="flex flex-wrap gap-3 justify-center">
@@ -168,9 +176,9 @@ const NotFound = () => {
                   onClick={() => navigate(link.path)}
                   className="px-4 py-2 rounded-lg text-sm font-medium text-gray-200 transition-all duration-300 hover:scale-105 hover:text-white"
                   style={{
-                    background: "rgba(255, 255, 255, 0.08)",
+                    background: "rgba(38, 166, 154, 0.1)",
                     backdropFilter: "blur(8px)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    border: "1px solid rgba(38, 166, 154, 0.2)",
                   }}
                 >
                   {link.label}
@@ -179,12 +187,12 @@ const NotFound = () => {
             </div>
           </div>
 
-          {/* Decorative Icons */}
+          {/* Decorative Icons — sesuaikan warna */}
           <div className="mt-8 flex justify-center gap-4 opacity-40">
-            <Search className="w-6 h-6 text-blue-300 animate-pulse" />
+            <Search className="w-6 h-6 text-teal-300 animate-pulse" />
             <Compass className="w-6 h-6 text-cyan-300 animate-spin-slow" />
             <Zap
-              className="w-6 h-6 text-yellow-300 animate-pulse"
+              className="w-6 h-6 text-orange-300 animate-pulse"
               style={{ animationDelay: "0.5s" }}
             />
           </div>
@@ -193,7 +201,7 @@ const NotFound = () => {
 
       <Footer />
 
-      {/* Custom Animations */}
+      {/* Custom Animations — tetap sama */}
       <style>{`
         @keyframes float {
           0%,

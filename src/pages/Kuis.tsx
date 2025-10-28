@@ -710,8 +710,10 @@ const Kuis = () => {
           {/* Header dengan Pilihan Kuis */}
           <div className="space-y-6 animate-fade-in">
             <div className="text-center mb-8">
-              <h1 className="text-4xl font-extrabold bg-gradient-to-r from-[#26a69a] via-[#f39c12] to-[#26a69a] bg-clip-text text-transparent mb-3">
-                Pilih Kuis
+              {/* Main Heading */}
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                <span style={{ color: "#FFFFFF" }}>Pilih </span>
+                <span style={{ color: "#F39C12" }}>Quiz</span>
               </h1>
               <p className="text-gray-300 text-lg">
                 Uji pemahamanmu dengan berbagai topik kuis

@@ -35,7 +35,6 @@ if (typeof SyntaxHighlighter.registerLanguage === "function") {
   SyntaxHighlighter.registerLanguage("go", goLang);
 }
 
-// Definisikan tipe Topic
 type Topic = {
   id: string;
   title: string;
@@ -58,86 +57,249 @@ const topics: Topic[] = [
   {
     id: "intro-golang",
     title: "Pengenalan Go (Golang)",
-    description: "Mengenal bahasa pemrograman Go dan keunggulannya",
+    description:
+      "Pelajari dasar komprehensif Go: sejarah, filosofi, instalasi, struktur program, dan ekosistem pengembangan.",
     level: "beginner",
-    duration: "15 menit",
+    duration: "30 menit",
     icon: Lightbulb,
     locked: false,
     content: {
       explanation:
-        "Go, atau sering disebut Golang, adalah bahasa pemrograman open-source yang dirilis oleh Google pada tahun 2009. Bahasa ini dikembangkan oleh tim yang terdiri dari Robert Griesemer, Rob Pike, dan Ken Thompson, yang memiliki pengalaman mendesain bahasa pemrograman seperti C dan Unix. Go dirancang untuk menjawab kebutuhan pengembangan perangkat lunak modern, dengan fokus pada kesederhanaan, efisiensi, dan performa tinggi. Go menggabungkan kecepatan kompilasi yang cepat, sintaks yang mudah dipahami, dan kemampuan untuk menangani aplikasi berskala besar seperti server cloud dan sistem terdistribusi. Bahasa ini sangat populer di kalangan pengembang untuk membangun aplikasi seperti Docker, Kubernetes, dan berbagai layanan microservices karena kemampuannya dalam menangani konkurensi secara efisien melalui fitur seperti goroutine dan channel. Selain itu, Go memiliki standard library yang kaya, sehingga pengembang dapat membangun aplikasi tanpa bergantung pada banyak pustaka eksternal. Go juga mendukung garbage collection untuk manajemen memori otomatis dan memiliki pendekatan statically typed yang memastikan tipe data diperiksa saat kompilasi, mengurangi kesalahan runtime. Kesederhanaan Go terlihat dari tidak adanya fitur kompleks seperti inheritance atau exception handling berbasis try-catch, yang digantikan dengan pendekatan yang lebih eksplisit dan mudah dipahami.",
+        "Go (juga dikenal sebagai Golang) adalah bahasa pemrograman open-source yang dirancang di Google dan dirilis secara publik pada November 2009. Go dibuat oleh Robert Griesemer, Rob Pike, dan Ken Thompson—para tokoh di balik sistem operasi Unix dan bahasa C. Mereka merancang Go untuk menjawab masalah nyata dalam pengembangan perangkat lunak skala besar: kompilasi lambat, kompleksitas berlebihan, manajemen konkurensi yang rumit, dan ketergantungan pada toolchain eksternal.\n\nGo adalah bahasa compiled, statically typed, dengan garbage collection otomatis, dan kompilasi yang sangat cepat ke binary native. Meskipun dikompilasi seperti C/C++, Go terasa ringan dan mudah seperti bahasa skrip berkat sintaks minimalis dan toolchain terintegrasi.\n\nSalah satu kekuatan utama Go adalah dukungan bawaan untuk konkurensi melalui goroutine (unit eksekusi ringan) dan channel (mekanisme komunikasi aman antar goroutine). Pendekatan ini memungkinkan pengembang membangun aplikasi jaringan dan layanan backend yang sangat efisien dan scalable.\n\nGo sengaja tidak menyertakan fitur seperti inheritance, exception (try/catch), atau operator overloading. Sebagai gantinya, Go mendorong komposisi, antarmuka implisit, dan penanganan error eksplisit melalui nilai kembalian—pendekatan yang membuat kode lebih transparan dan mudah di-debug.\n\nEkosistem Go sangat matang. Proyek-proyek infrastruktur kritis seperti Docker, Kubernetes, Prometheus, Terraform, dan Grafana dibangun dengan Go. Toolchain bawaan (`go build`, `go test`, `go fmt`, `go mod`) memungkinkan pengembangan end-to-end tanpa dependensi eksternal.\n\nUntuk memulai: unduh Go dari https://go.dev/dl/, buat file `.go`, dan jalankan dengan `go run`. Setiap program yang dapat dieksekusi harus berada di `package main` dan memiliki fungsi `func main()`.",
       keyPoints: [
-        "Statically typed: Tipe data diperiksa saat kompilasi untuk mencegah kesalahan.",
-        "Garbage collection: Manajemen memori otomatis yang efisien.",
-        "Concurrency: Dukungan goroutine dan channel untuk pemrograman paralel.",
-        "Kompilasi cepat: Proses kompilasi sangat cepat, mendukung pengembangan iteratif.",
-        "Standard library kuat: Mendukung HTTP, JSON, file I/O tanpa dependensi eksternal.",
+        "Dikembangkan di Google pada 2009 oleh tim yang berpengalaman dalam sistem Unix dan C.",
+        "Bahasa compiled, statically typed, dengan garbage collection dan kompilasi sangat cepat.",
+        "Dirancang untuk konkurensi: goroutine ringan dan channel untuk komunikasi aman antar proses.",
+        "Tidak ada inheritance atau exception—mengandalkan komposisi dan penanganan error eksplisit.",
+        "Standard library sangat lengkap: HTTP, JSON, crypto, testing, database/sql, dan lainnya.",
+        "Toolchain bawaan terintegrasi: build, test, format, modul, dokumentasi, profiling—semua dalam satu distribusi.",
+        "Kompatibilitas mundur dijamin sejak Go 1 (2012)—kode lama tetap berjalan di versi baru tanpa modifikasi.",
       ],
-      example: `package main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Selamat datang di dunia Go!")\n}`,
+      example: `package main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Hello, 世界!")\n}`,
       tips: [
-        "Gunakan gofmt untuk memformat kode secara otomatis agar konsisten.",
-        "Go tidak memerlukan titik koma di akhir baris, menyederhanakan sintaks.",
-        "Selalu deklarasikan package main untuk program yang dapat dieksekusi.",
+        "Instal Go dari https://go.dev/dl/ dan verifikasi dengan perintah `go version` di terminal.",
+        "Jalankan program langsung tanpa membuat binary menggunakan `go run namafile.go`.",
+        "Format kode otomatis dengan `Ctrl + Enter` (di Go Playground) atau `gofmt -w .` di lokal.",
+        "Nama fungsi, tipe, atau variabel yang diawali huruf kapital (misalnya `MyFunc`) bersifat publik dan dapat diekspor ke package lain.",
+        "Mulai proyek baru dengan `go mod init namaprojek` untuk mengaktifkan manajemen modul modern.",
+        "Eksplorasi standard library di https://pkg.go.dev/std — seringkali Anda tidak perlu library pihak ketiga.",
+        "Pelajari gaya penulisan idiomatik Go melalui dokumen 'Effective Go' dan praktik langsung di 'A Tour of Go'.",
       ],
       resources: [
         { title: "Dokumentasi Resmi Go", url: "https://go.dev/doc/" },
-        { title: "A Tour of Go", url: "https://go.dev/tour/" },
+        { title: "A Tour of Go (Interaktif)", url: "https://go.dev/tour/" },
+        {
+          title: "Effective Go – Panduan Menulis Kode Idiomatik",
+          url: "https://go.dev/doc/effective_go",
+        },
+        { title: "Go Playground (Editor Online)", url: "https://go.dev/play/" },
+        { title: "Referensi Standard Library", url: "https://pkg.go.dev/std" },
+        { title: "Go by Example", url: "https://gobyexample.com/" },
       ],
     },
   },
   {
     id: "structure",
     title: "Struktur Dasar Program Go",
-    description: "Memahami struktur dasar program Go",
+    description:
+      "Pelajari komponen inti dari setiap program Go: package, import, fungsi main, serta konvensi penulisan dan eksekusi kode.",
     level: "beginner",
     duration: "20 menit",
     icon: FileCode,
     locked: false,
     content: {
       explanation:
-        "Setiap program Go memiliki struktur dasar yang terdiri dari deklarasi package, impor pustaka, dan fungsi utama (main). Package main adalah package khusus yang menandakan bahwa program tersebut adalah executable, bukan pustaka. Fungsi main() adalah titik masuk eksekusi program, di mana kode mulai dijalankan. Go menggunakan kata kunci import untuk mengimpor pustaka, baik dari standard library (seperti fmt untuk format dan time untuk waktu) maupun pustaka eksternal. Sintaks Go dirancang sederhana: tidak memerlukan titik koma di akhir baris karena Go menggunakan newline sebagai pemisah pernyataan. Struktur file Go biasanya dimulai dengan deklarasi package, diikuti oleh impor pustaka dalam blok import, dan kemudian definisi fungsi atau variabel. Go juga mendukung pengelompokan impor dalam tanda kurung untuk kejelasan, terutama jika ada banyak pustaka yang diimpor. Selain itu, Go memiliki alat seperti gofmt yang memastikan kode diformat secara konsisten, dan go build untuk mengompilasi program. Struktur ini memungkinkan pengembang untuk menulis kode yang mudah dibaca dan dipelihara, dengan fokus pada logika program tanpa kerumitan sintaks yang tidak perlu.",
+        "Setiap program Go memiliki struktur dasar yang konsisten dan minimalis. Bahasa Go dirancang agar kode mudah dibaca, dirawat, dan diperluas.\n\n" +
+        "Struktur program Go biasanya terdiri dari tiga bagian utama: deklarasi package, blok import, dan fungsi utama (main). Berikut penjelasan rinci untuk masing-masing bagian.\n\n" +
+        "1. Package\n" +
+        "Setiap file Go dimulai dengan pernyataan `package <nama>`. Package berfungsi sebagai cara Go mengorganisasi kode ke dalam modul yang terpisah agar mudah digunakan kembali. Jika Anda membuat program yang dapat dijalankan langsung (executable), gunakan `package main`. Package lain, seperti `package mathutils` atau `package models`, digunakan untuk pustaka (library) yang akan diimpor oleh program lain.\n\n" +
+        "Contoh:\n" +
+        "```go\npackage main\n```\n" +
+        "Jika Anda menulis library untuk digunakan oleh proyek lain, gunakan nama package yang sesuai dengan fungsinya, misalnya:\n" +
+        "```go\npackage helper\n```\n\n" +
+        "2. Import\n" +
+        "Bagian ini digunakan untuk memuat pustaka (library) yang dibutuhkan. Go memiliki standard library yang sangat kaya, mencakup banyak kebutuhan umum seperti input/output, waktu, jaringan, hingga pemrosesan JSON. Impor dapat dilakukan satu per satu atau dalam satu blok agar lebih rapi.\n\n" +
+        "Contoh:\n" +
+        '```go\nimport (\n    "fmt"\n    "time"\n)\n```\n' +
+        "Dengan Go Modules, sistem dependensi akan dikelola secara otomatis tanpa perlu path manual. Anda cukup menggunakan `go mod init` dan `go mod tidy` untuk membuat serta memperbarui dependensi proyek.\n\n" +
+        "3. Fungsi main()\n" +
+        "Fungsi `main()` adalah titik masuk utama dari program Go. Saat Anda menjalankan `go run`, eksekusi akan dimulai dari fungsi ini. Hanya package `main` yang boleh memiliki fungsi `main()`. Jika fungsi ini tidak ada, file Go hanya dapat digunakan sebagai library.\n\n" +
+        "Contoh:\n" +
+        '```go\nfunc main() {\n    fmt.Println("Halo, dunia!")\n}\n```\n' +
+        "Fungsi ini wajib ada untuk menjalankan program Go secara langsung.\n\n" +
+        "4. Sintaks dan Format\n" +
+        "Go tidak memerlukan tanda titik koma (;) di akhir setiap baris karena Go akan otomatis menambahkannya saat parsing. Go juga memiliki aturan ketat terkait posisi kurung kurawal.\n\n" +
+        "Kurung buka `{` harus berada di akhir baris yang sama dengan deklarasi fungsi atau struktur, bukan di baris baru.\n\n" +
+        "Contoh yang benar:\n" +
+        '```go\nfunc main() {\n    fmt.Println("Benar")\n}\n```\n' +
+        "Contoh yang salah:\n" +
+        '```go\nfunc main()\n{\n    fmt.Println("Salah")\n}\n```\n\n' +
+        "Selain itu, Go menyediakan tool bawaan bernama `gofmt` yang secara otomatis memformat kode agar seragam di seluruh proyek dan tim.\n\n" +
+        "5. Alur Pengembangan\n" +
+        "Setelah kode ditulis, ada dua cara utama untuk mengeksekusinya:\n" +
+        "- `go run namafile.go` untuk menjalankan program langsung tanpa membuat file biner.\n" +
+        "- `go build` untuk mengompilasi kode menjadi file biner (executable) yang dapat dijalankan secara mandiri.\n\n" +
+        "Go juga mendukung proses otomatisasi seperti testing (`go test`) dan dokumentasi (`go doc`). Filosofi Go sangat menekankan kesederhanaan, eksplisit, dan efisiensi agar pengembang bisa fokus pada logika, bukan kompleksitas sintaks.\n\n" +
+        "Dengan struktur ini, setiap proyek Go menjadi mudah dipahami, cepat dikompilasi, dan mudah diperluas ke skala produksi tanpa harus mengubah pola dasarnya.",
+
       keyPoints: [
-        "package main: Mendefinisikan package utama untuk executable.",
-        "import: Mengimpor pustaka seperti fmt untuk pencetakan atau time untuk waktu.",
-        "func main(): Fungsi utama sebagai titik masuk program.",
-        "Tidak perlu titik koma: Go menggunakan newline untuk pemisahan pernyataan.",
+        "Setiap file Go dimulai dengan deklarasi package; gunakan `package main` untuk program yang dapat dieksekusi.",
+        "Package digunakan untuk mengorganisasi kode ke dalam modul terpisah dan reusable.",
+        "Fungsi `main()` adalah titik masuk utama untuk eksekusi program, hanya boleh ada di package main.",
+        "Gunakan blok `import (...)` untuk mengimpor beberapa pustaka sekaligus dengan rapi.",
+        "Go tidak memerlukan titik koma; newline digunakan sebagai pemisah antar pernyataan.",
+        "Kurung kurawal `{` harus berada di akhir baris deklarasi, bukan di baris baru.",
+        "Gunakan `gofmt` agar gaya kode tetap seragam di seluruh proyek.",
+        "Standard library Go mencakup kebutuhan umum seperti I/O, HTTP, JSON, dan manajemen waktu.",
+        "Go Modules (`go.mod`) mengelola versi dan dependensi secara otomatis dan deterministik.",
       ],
-      example: `package main\n\nimport (\n    "fmt"\n    "time"\n)\n\nfunc main() {\n    fmt.Println("Waktu saat ini:", time.Now())\n}`,
+
+      example:
+        'package main\n\nimport (\n    "fmt"\n    "time"\n)\n\nfunc main() {\n    fmt.Println("Halo, dunia!")\n    fmt.Println("Waktu saat ini:", time.Now())\n}\n',
+
       tips: [
-        "Gunakan blok import dengan tanda kurung untuk beberapa pustaka.",
-        "Package main menghasilkan file executable saat dikompilasi.",
+        "Gunakan `go mod init namaprojek` untuk membuat proyek baru dengan Go Modules.",
+        "Jalankan `gofmt -w .` untuk memformat kode secara otomatis di seluruh file proyek.",
+        "Gunakan nama package yang singkat, deskriptif, dan huruf kecil (misalnya `auth`, `config`, `api`).",
+        "Hindari `import .` karena dapat menyebabkan ambiguitas nama fungsi atau variabel.",
+        "Jika Anda membuat library, gunakan nama package deskriptif seperti `logger` atau `mathutil`, bukan `main`.",
+        'Untuk program kecil, Anda dapat mengimpor satu package tanpa blok: `import "fmt"`.',
+        "Gunakan `go run` untuk pengujian cepat, dan `go build` untuk distribusi aplikasi.",
+        "Gunakan komentar di atas fungsi untuk mendeskripsikan perannya; Go menggunakan komentar tersebut untuk dokumentasi otomatis dengan `go doc`.",
       ],
+
       resources: [
-        { title: "Effective Go", url: "https://go.dev/doc/effective_go" },
+        {
+          title: "Effective Go – Package Names & Program Structure",
+          url: "https://go.dev/doc/effective_go#package-names",
+        },
+        {
+          title: "A Tour of Go – Basics",
+          url: "https://go.dev/tour/basics/1",
+        },
+        {
+          title: "How to Write Go Code",
+          url: "https://go.dev/doc/code",
+        },
+        {
+          title: "Go Modules Reference",
+          url: "https://go.dev/ref/mod",
+        },
+        {
+          title: "Go by Example – Hello World",
+          url: "https://gobyexample.com/hello-world",
+        },
       ],
     },
   },
   {
     id: "variables",
     title: "Variabel dan Tipe Data",
-    description: "Belajar cara menyimpan data dalam variabel",
+    description:
+      "Pelajari cara menyimpan, mengelola, dan memanfaatkan data menggunakan variabel serta tipe data dalam Go.",
     level: "beginner",
-    duration: "20 menit",
+    duration: "25 menit",
     icon: Code,
     locked: false,
     content: {
       explanation:
-        "Dalam Go, variabel digunakan untuk menyimpan data, dan Go adalah bahasa statically typed, yang berarti tipe data variabel harus ditentukan saat kompilasi, baik secara eksplisit maupun melalui type inference. Ada dua cara utama untuk mendeklarasikan variabel: menggunakan kata kunci var untuk deklarasi eksplisit (misalnya, var nama string = 'Budi') atau menggunakan operator := untuk type inference dalam fungsi (misalnya, umur := 25). Type inference memungkinkan Go secara otomatis menentukan tipe data berdasarkan nilai yang diberikan, membuat kode lebih ringkas. Go memiliki beberapa tipe data dasar, seperti int untuk bilangan bulat, float64 untuk bilangan desimal, string untuk teks, dan bool untuk nilai boolean. Setiap variabel yang dideklarasikan tanpa inisialisasi akan memiliki zero value sesuai tipenya: 0 untuk int, 0.0 untuk float64, '' untuk string, dan false untuk bool. Zero value ini memastikan bahwa tidak ada variabel yang berada dalam keadaan tidak terdefinisi, sehingga mengurangi bug. Go juga mendukung deklarasi banyak variabel sekaligus menggunakan var atau :=, serta konstanta dengan kata kunci const untuk nilai yang tidak berubah. Pemahaman tentang variabel dan tipe data sangat penting karena mereka membentuk dasar manipulasi data dalam program Go, dan pendekatan Go yang eksplisit membantu menjaga kode tetap aman dan dapat diprediksi.",
+        "Dalam bahasa Go, variabel digunakan untuk menyimpan data agar dapat digunakan kembali di berbagai bagian program. Go adalah bahasa yang bersifat statically typed, artinya setiap variabel harus memiliki tipe data yang diketahui saat kompilasi. Hal ini membuat kode lebih aman dan mudah dipahami, karena kesalahan tipe dapat dideteksi sejak awal sebelum program dijalankan.\n\n" +
+        "1. Deklarasi Variabel\n" +
+        "Ada dua cara utama untuk mendeklarasikan variabel di Go, yaitu dengan kata kunci `var` dan operator pendek `:=`.\n\n" +
+        "- Menggunakan `var`: Digunakan untuk deklarasi eksplisit dengan atau tanpa inisialisasi nilai.\n" +
+        "Contoh:\n" +
+        '```go\nvar nama string = "Budi"\nvar umur int\numur = 25\n```\n' +
+        "Deklarasi ini memberi tahu kompilator bahwa variabel `nama` bertipe string, dan `umur` bertipe int.\n\n" +
+        "- Menggunakan `:=`: Dikenal sebagai short variable declaration, biasanya digunakan di dalam fungsi untuk mendeklarasikan variabel sekaligus menginisialisasinya. Go akan otomatis menentukan tipe data berdasarkan nilai yang diberikan.\n" +
+        "Contoh:\n" +
+        '```go\numur := 25\nnama := "Andi"\n```\n' +
+        "Pendekatan ini membuat kode lebih ringkas, namun tidak dapat digunakan di luar fungsi (seperti pada tingkat package).\n\n" +
+        "2. Zero Value (Nilai Awal Default)\n" +
+        "Jika sebuah variabel dideklarasikan tanpa diberi nilai awal, Go secara otomatis menginisialisasinya dengan nilai default (zero value) sesuai tipe datanya. Tujuan dari zero value adalah untuk memastikan bahwa tidak ada variabel dalam keadaan tidak terdefinisi.\n\n" +
+        "Contoh zero value:\n" +
+        "- int → 0\n" +
+        "- float64 → 0.0\n" +
+        '- string → ""\n' +
+        "- bool → false\n" +
+        "- pointer, interface, slice, map, channel → nil\n\n" +
+        "Dengan sistem ini, Go meminimalkan risiko bug akibat variabel yang belum diinisialisasi.\n\n" +
+        "3. Tipe Data Dasar\n" +
+        "Go menyediakan beberapa tipe data utama yang sering digunakan:\n\n" +
+        "- int, int8, int16, int32, int64 → untuk bilangan bulat.\n" +
+        "- uint, uint8 (alias byte), uint16, uint32, uint64 → bilangan bulat tanpa tanda.\n" +
+        "- float32, float64 → untuk bilangan desimal.\n" +
+        "- string → untuk menyimpan teks.\n" +
+        "- bool → untuk nilai logika true atau false.\n" +
+        "- complex64, complex128 → untuk bilangan kompleks.\n\n" +
+        "Go secara default menggunakan `int` dan `float64` jika tipe tidak dispesifikasikan.\n\n" +
+        "4. Deklarasi Banyak Variabel Sekaligus\n" +
+        "Go mendukung deklarasi beberapa variabel dalam satu baris atau dalam blok agar kode lebih ringkas.\n\n" +
+        "Contoh:\n" +
+        "```go\nvar x, y, z int = 1, 2, 3\n```\n" +
+        "Atau menggunakan blok:\n" +
+        '```go\nvar (\n    nama = "Citra"\n    umur = 20\n    aktif = true\n)\n```\n' +
+        "Pendekatan ini sangat berguna untuk mengelompokkan variabel yang saling berhubungan.\n\n" +
+        "5. Konstanta (const)\n" +
+        "Konstanta adalah variabel yang nilainya tidak dapat diubah setelah dideklarasikan. Gunakan kata kunci `const` untuk mendeklarasikannya.\n\n" +
+        "Contoh:\n" +
+        '```go\nconst Pi = 3.14\nconst AppName = "GoLang Dasar"\n```\n' +
+        "Konstanta dapat digunakan di seluruh program untuk nilai tetap seperti batas maksimum, nama aplikasi, atau konfigurasi.\n\n" +
+        "6. Konversi Tipe Data (Type Conversion)\n" +
+        "Go tidak melakukan konversi tipe secara otomatis, sehingga konversi harus dilakukan secara eksplisit. Ini mencegah kesalahan logika akibat perubahan tipe yang tidak diinginkan.\n\n" +
+        "Contoh:\n" +
+        "```go\nvar a int = 10\nvar b float64 = float64(a)\nvar c int = int(b)\n```\n" +
+        "Perhatikan bahwa hanya tipe yang kompatibel yang dapat dikonversi. Misalnya, string tidak dapat langsung dikonversi ke int tanpa proses parsing.\n\n" +
+        "7. Scope (Cakupan Variabel)\n" +
+        "Variabel dalam Go memiliki cakupan (scope) berdasarkan tempat deklarasinya:\n" +
+        "- Variabel global: dideklarasikan di luar fungsi dan dapat diakses dari seluruh file.\n" +
+        "- Variabel lokal: dideklarasikan di dalam fungsi dan hanya berlaku di dalamnya.\n" +
+        "Go juga memiliki aturan shadowing: jika variabel dengan nama yang sama dideklarasikan di dalam fungsi, maka variabel global dengan nama sama akan tertimpa (disembunyikan) sementara di dalam fungsi tersebut.\n\n" +
+        "8. Praktik Terbaik Penamaan\n" +
+        "Go memiliki konvensi penamaan yang khas:\n" +
+        "- Gunakan huruf kecil untuk variabel yang bersifat internal (tidak diekspor ke luar package).\n" +
+        "- Gunakan huruf kapital di awal nama variabel jika ingin membuatnya dapat diakses dari package lain (exported identifier).\n" +
+        "- Pilih nama yang deskriptif dan mudah dimengerti, misalnya `totalHarga` lebih baik daripada `th`.\n\n" +
+        "Dengan memahami konsep variabel dan tipe data ini, Anda akan lebih siap menulis program Go yang efisien, aman, dan mudah dibaca. Pengelolaan tipe secara eksplisit adalah salah satu kekuatan Go dalam menjaga stabilitas dan prediktabilitas aplikasi.",
+
       keyPoints: [
-        "Deklarasi eksplisit dengan var untuk kejelasan tipe.",
-        "Type inference dengan := untuk kode yang lebih ringkas.",
-        "Zero value: Nilai default untuk setiap tipe data.",
-        "Tipe data dasar: int, float64, string, bool.",
+        "Gunakan `var` untuk deklarasi eksplisit di tingkat global atau lokal.",
+        "Gunakan operator `:=` untuk deklarasi singkat di dalam fungsi.",
+        "Zero value menjamin setiap variabel selalu memiliki nilai awal yang valid.",
+        "Go mendukung tipe data dasar: int, float64, string, bool, dan kompleks.",
+        "Gunakan `const` untuk nilai tetap yang tidak boleh diubah.",
+        "Konversi tipe harus dilakukan secara eksplisit menggunakan nama tipe.",
+        "Gunakan nama variabel yang jelas, deskriptif, dan mengikuti konvensi penulisan Go.",
+        "Variabel memiliki scope tertentu (global atau lokal) dan dapat mengalami shadowing.",
       ],
-      example: `package main\n\nimport "fmt"\n\nfunc main() {\n    var nama string = "Budi"\n    umur := 25\n    tinggi := 170.5\n    fmt.Printf("Nama: %s, Umur: %d, Tinggi: %.1f\\n", nama, umur, tinggi)\n}`,
+
+      example:
+        'package main\n\nimport "fmt"\n\nfunc main() {\n    var nama string = "Budi"\n    umur := 25\n    tinggi := 170.5\n    aktif := true\n\n    const negara = "Indonesia"\n\n    fmt.Printf("Nama: %s\\n", nama)\n    fmt.Printf("Umur: %d tahun\\n", umur)\n    fmt.Printf("Tinggi: %.1f cm\\n", tinggi)\n    fmt.Printf("Aktif: %t\\n", aktif)\n    fmt.Printf("Negara: %s\\n", negara)\n}\n',
+
       tips: [
-        "Gunakan := hanya di dalam fungsi untuk type inference.",
-        "Pilih nama variabel yang jelas dan deskriptif.",
+        "Gunakan `:=` hanya di dalam fungsi; di luar fungsi gunakan `var`.",
+        "Selalu inisialisasi variabel jika memungkinkan untuk kejelasan logika.",
+        "Gunakan `const` untuk nilai yang tidak berubah, seperti konfigurasi dan konstanta matematis.",
+        "Hindari mendeklarasikan variabel yang tidak digunakan; Go akan menolak kompilasi jika variabel tidak terpakai.",
+        "Gunakan tipe yang paling efisien (misalnya `float32` jika tidak membutuhkan presisi tinggi).",
+        "Gunakan penamaan yang sesuai konteks — hindari singkatan tidak jelas.",
       ],
+
       resources: [
         {
-          title: "Go Variables",
+          title: "Go Variables – Official Documentation",
+          url: "https://go.dev/doc/effective_go#variables",
+        },
+        {
+          title: "A Tour of Go – Variables, Constants, and Types",
+          url: "https://go.dev/tour/basics/8",
+        },
+        {
+          title: "W3Schools – Go Variables",
           url: "https://www.w3schools.com/go/go_variables.php",
+        },
+        {
+          title: "Go by Example – Variables and Constants",
+          url: "https://gobyexample.com/variables",
         },
       ],
     },
@@ -478,13 +640,14 @@ const PenjelasanLengkap = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#2c3e50] text-gray-100">
       <Navbar />
-      <main className="flex-1 container mx-auto px-4 py-10 animate-fadeIn">
+
+      <main className="flex-1 container mx-auto px-4 py-6 sm:py-8 animate-fadeIn">
         {/* Header */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-extrabold bg-gradient-to-r from-[#26a69a] via-[#f39c12] to-[#26a69a] bg-clip-text text-transparent mb-3">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-[#26a69a] via-[#f39c12] to-[#26a69a] bg-clip-text text-transparent mb-3">
             Penjelasan Lengkap Pemrograman Go
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed px-2">
             Materi teori mendalam dengan penjelasan komprehensif, contoh kode,
             tips, dan sumber belajar berdasarkan{" "}
             <a
@@ -499,9 +662,9 @@ const PenjelasanLengkap = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Sidebar */}
-          <aside className="lg:col-span-1 space-y-3 max-h-[75vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#26a69a]/60 scrollbar-track-transparent">
+          <aside className="lg:col-span-1 space-y-3 max-h-[70vh] overflow-y-auto pr-1 sm:pr-2 scrollbar-thin scrollbar-thumb-[#26a69a]/60 scrollbar-track-transparent">
             {topics.map((topic) => (
               <Card
                 key={topic.id}
@@ -525,7 +688,7 @@ const PenjelasanLengkap = () => {
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex justify-between items-start">
+                    <div className="flex justify-between items-start flex-wrap gap-1">
                       <h3 className="font-semibold text-sm truncate text-white">
                         {topic.title}
                       </h3>
@@ -546,19 +709,19 @@ const PenjelasanLengkap = () => {
           {/* Konten Utama */}
           <section className="lg:col-span-3 space-y-6">
             {/* Header Topik */}
-            <Card className="p-6 bg-[#34495e] border border-[#26a69a]/20 shadow-lg rounded-2xl">
-              <div className="flex items-center gap-4">
+            <Card className="p-5 sm:p-6 bg-[#34495e] border border-[#26a69a]/20 shadow-lg rounded-xl sm:rounded-2xl">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <div className="p-3 bg-[#26a69a]/20 rounded-xl">
-                  <selectedTopic.icon className="h-8 w-8 text-[#26a69a]" />
+                  <selectedTopic.icon className="h-7 w-7 sm:h-8 sm:w-8 text-[#26a69a]" />
                 </div>
-                <div>
-                  <h2 className="text-2xl font-bold text-white mb-1">
+                <div className="text-center sm:text-left">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-1">
                     {selectedTopic.title}
                   </h2>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-gray-300 text-sm sm:text-base">
                     {selectedTopic.description}
                   </p>
-                  <div className="flex items-center gap-2 mt-2 text-sm text-gray-400">
+                  <div className="flex justify-center sm:justify-start items-center gap-2 mt-2 text-sm text-gray-400">
                     <Clock className="h-4 w-4" /> {selectedTopic.duration}
                   </div>
                 </div>
@@ -566,77 +729,86 @@ const PenjelasanLengkap = () => {
             </Card>
 
             {/* Penjelasan */}
-            <Card className="p-6 bg-[#34495e] border border-[#26a69a]/20 shadow-md rounded-2xl">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[#f39c12]">
+            <Card className="p-5 sm:p-6 bg-[#34495e] border border-[#26a69a]/20 shadow-md rounded-xl sm:rounded-2xl">
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 flex items-center gap-2 text-[#f39c12]">
                 <BookOpen className="h-5 w-5" /> Penjelasan Konsep
               </h3>
-              <p className="text-gray-300 mb-4 leading-relaxed">
+              <p className="text-gray-300 mb-4 leading-relaxed text-sm sm:text-base">
                 {selectedTopic.content.explanation}
               </p>
               <ul className="space-y-2">
                 {selectedTopic.content.keyPoints.map((point, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-[#26a69a] mt-0.5" />
-                    <span className="text-gray-300">{point}</span>
+                    <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-[#26a69a] mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm sm:text-base">
+                      {point}
+                    </span>
                   </li>
                 ))}
               </ul>
             </Card>
 
             {/* Contoh Kode */}
-            <Card className="p-6 bg-[#2c3e50] border border-[#26a69a]/30 rounded-2xl">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[#f39c12]">
+            <Card className="p-4 sm:p-6 bg-[#2c3e50] border border-[#26a69a]/30 rounded-xl sm:rounded-2xl overflow-x-auto">
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 flex items-center gap-2 text-[#f39c12]">
                 <Code className="h-5 w-5" /> Contoh Kode
               </h3>
-              <SyntaxHighlighter
-                language="go"
-                style={{
-                  ...oneDark,
-                  'pre[class*="language-"]': {
-                    background: "#263238",
-                    borderRadius: "0.75rem",
-                    padding: "1.25rem",
-                    fontSize: "0.9rem",
-                  },
-                  "span.token.keyword": { color: "#26a69a" },
-                  "span.token.function": { color: "#f39c12" },
-                  "span.token.string": { color: "#f5b041" },
-                }}
-                showLineNumbers
-                wrapLines
-              >
-                {selectedTopic.content.example}
-              </SyntaxHighlighter>
+              <div className="text-sm">
+                <SyntaxHighlighter
+                  language="go"
+                  style={{
+                    ...oneDark,
+                    'pre[class*="language-"]': {
+                      background: "#263238",
+                      borderRadius: "0.75rem",
+                      padding: "1rem",
+                      fontSize: "0.875rem",
+                      lineHeight: "1.5",
+                      margin: 0,
+                      overflowX: "auto",
+                    },
+                    "span.token.keyword": { color: "#26a69a" },
+                    "span.token.function": { color: "#f39c12" },
+                    "span.token.string": { color: "#f5b041" },
+                  }}
+                  showLineNumbers
+                  customStyle={{ margin: 0 }}
+                >
+                  {selectedTopic.content.example}
+                </SyntaxHighlighter>
+              </div>
             </Card>
 
             {/* Tips */}
-            <Card className="p-6 bg-[#34495e] border border-[#26a69a]/20 rounded-2xl">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[#f39c12]">
+            <Card className="p-5 sm:p-6 bg-[#34495e] border border-[#26a69a]/20 rounded-xl sm:rounded-2xl">
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 flex items-center gap-2 text-[#f39c12]">
                 <Lightbulb className="h-5 w-5" /> Tips Belajar
               </h3>
               <ul className="space-y-2">
                 {selectedTopic.content.tips.map((tip, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <Sparkles className="h-5 w-5 text-[#26a69a] mt-0.5" />
-                    <span className="text-gray-300">{tip}</span>
+                    <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-[#26a69a] mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm sm:text-base">
+                      {tip}
+                    </span>
                   </li>
                 ))}
               </ul>
             </Card>
 
             {/* Sumber Belajar */}
-            <Card className="p-6 bg-[#34495e] border border-[#26a69a]/20 rounded-2xl">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[#f39c12]">
+            <Card className="p-5 sm:p-6 bg-[#34495e] border border-[#26a69a]/20 rounded-xl sm:rounded-2xl">
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 flex items-center gap-2 text-[#f39c12]">
                 <BookOpen className="h-5 w-5" /> Sumber Belajar Tambahan
               </h3>
               <ul className="space-y-2">
                 {selectedTopic.content.resources.map((res, index) => (
                   <li key={index}>
                     <a
-                      href={res.url}
+                      href={res.url.trim()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-[#26a69a] hover:text-[#f39c12] transition-colors"
+                      className="flex items-center gap-2 text-[#26a69a] hover:text-[#f39c12] transition-colors text-sm sm:text-base"
                     >
                       <ExternalLink className="h-4 w-4" /> {res.title}
                     </a>
@@ -645,13 +817,13 @@ const PenjelasanLengkap = () => {
               </ul>
             </Card>
 
-            {/* Navigasi */}
-            <div className="flex flex-wrap justify-between items-center gap-3 pt-8 border-t border-[#26a69a]/30 mt-10 pt-6">
-              {/* Tombol Materi Sebelumnya */}
+            {/* Navigasi Responsif */}
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-[#26a69a]/30 mt-8">
+              {/* Sebelumnya */}
               {topics.indexOf(selectedTopic) > 0 ? (
                 <Button
                   variant="outline"
-                  className="border-[#26a69a]/40 text-[#26a69a] hover:bg-[#26a69a]/20"
+                  className="w-full sm:w-auto border-[#26a69a]/40 text-[#26a69a] hover:bg-[#26a69a]/20"
                   onClick={() =>
                     setSelectedTopic(topics[topics.indexOf(selectedTopic) - 1])
                   }
@@ -659,22 +831,22 @@ const PenjelasanLengkap = () => {
                   <ArrowLeft className="mr-2 h-4 w-4" /> Materi Sebelumnya
                 </Button>
               ) : (
-                <div className="w-[160px]" />
+                <div className="w-full sm:w-[160px]" />
               )}
 
-              {/* Tombol Kembali ke Halaman Materi */}
-              <Link to="/materi" className="flex justify-center">
-                <Button className="bg-[#34495e] text-[#26a69a] hover:bg-[#26a69a]/20 shadow-md">
+              {/* Kembali ke Materi */}
+              <Link to="/materi" className="w-full sm:w-auto">
+                <Button className="w-full sm:w-auto bg-[#34495e] text-[#26a69a] hover:bg-[#26a69a]/20 shadow-md">
                   <ArrowLeft className="mr-2 h-4 w-4" />
                   Kembali ke Halaman Materi
                 </Button>
               </Link>
 
-              {/* Tombol Materi Berikutnya */}
+              {/* Berikutnya */}
               {topics.indexOf(selectedTopic) < topics.length - 1 ? (
                 <Button
                   variant="outline"
-                  className="border-[#26a69a]/40 text-[#26a69a] hover:bg-[#26a69a]/20"
+                  className="w-full sm:w-auto border-[#26a69a]/40 text-[#26a69a] hover:bg-[#26a69a]/20"
                   onClick={() =>
                     setSelectedTopic(topics[topics.indexOf(selectedTopic) + 1])
                   }
@@ -682,12 +854,13 @@ const PenjelasanLengkap = () => {
                   Materi Berikutnya <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               ) : (
-                <div className="w-[160px]" />
+                <div className="w-full sm:w-[160px]" />
               )}
             </div>
           </section>
         </div>
       </main>
+
       <Footer />
     </div>
   );

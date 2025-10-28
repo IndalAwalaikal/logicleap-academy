@@ -373,21 +373,27 @@ const MateriGolang = () => {
     <div className="min-h-screen flex flex-col bg-[#2c3e50] text-gray-100">
       <Navbar />
 
-      <main className="flex-1 container mx-auto px-4 py-10 animate-fadeIn">
+      <main className="flex-1 container mx-auto px-4 py-6 sm:py-8 animate-fadeIn">
         {/* Header */}
-        <div className="mb-10 text-center">
-          <h1 className="text-4xl font-extrabold bg-gradient-to-r from-[#26a69a] via-[#f39c12] to-[#26a69a] bg-clip-text text-transparent mb-3">
-            Belajar Golang dari Nol
+        <div className="mb-8 text-center">
+          {/* Main Heading */}
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight text-center">
+            <span style={{ color: "#FFFFFF" }}>Belajar </span>
+            <span style={{ color: "#F39C12" }}>GoLang</span>
+            <br className="block md:hidden" />
+            <span style={{ color: "#FFFFFF" }}> Dari</span>
+            <span style={{ color: "#26A69A" }}> Nol</span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
+
+          <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed px-2">
             Materi interaktif dengan contoh kode, latihan, video, dan sumber
             belajar terbaik untuk pemula hingga mahir.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8">
-          {/* Sidebar */}
-          <aside className="lg:col-span-1 space-y-3 max-h-[75vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#26a69a]/60 scrollbar-track-transparent">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8">
+          {/* Sidebar - muncul di atas di mobile */}
+          <aside className="lg:col-span-1 space-y-3 max-h-[70vh] overflow-y-auto pr-1 sm:pr-2 scrollbar-thin scrollbar-thumb-[#26a69a]/60 scrollbar-track-transparent">
             {topics.map((topic) => (
               <Card
                 key={topic.id}
@@ -411,7 +417,7 @@ const MateriGolang = () => {
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex justify-between items-start">
+                    <div className="flex justify-between items-start flex-wrap gap-1">
                       <h3 className="font-semibold text-sm truncate text-white">
                         {topic.title}
                       </h3>
@@ -433,19 +439,19 @@ const MateriGolang = () => {
           {/* Konten Utama */}
           <section className="lg:col-span-3 space-y-6">
             {/* Header Topik */}
-            <Card className="p-6 bg-[#34495e] border border-[#26a69a]/20 shadow-lg rounded-2xl">
-              <div className="flex items-center gap-4">
+            <Card className="p-5 sm:p-6 bg-[#34495e] border border-[#26a69a]/20 shadow-lg rounded-xl sm:rounded-2xl">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <div className="p-3 bg-[#26a69a]/20 rounded-xl">
-                  <selectedTopic.icon className="h-8 w-8 text-[#26a69a]" />
+                  <selectedTopic.icon className="h-7 w-7 sm:h-8 sm:w-8 text-[#26a69a]" />
                 </div>
-                <div>
-                  <h2 className="text-2xl font-bold text-white mb-1">
+                <div className="flex-1 text-center sm:text-left">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-1">
                     {selectedTopic.title}
                   </h2>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-gray-300 text-sm sm:text-base">
                     {selectedTopic.description}
                   </p>
-                  <div className="flex items-center gap-2 mt-2 text-sm text-gray-400">
+                  <div className="flex justify-center sm:justify-start items-center gap-2 mt-2 text-sm text-gray-400">
                     <Clock className="h-4 w-4" /> {selectedTopic.duration}
                   </div>
                 </div>
@@ -453,26 +459,28 @@ const MateriGolang = () => {
             </Card>
 
             {/* Penjelasan */}
-            <Card className="p-6 bg-[#34495e] border border-[#26a69a]/20 shadow-md rounded-2xl">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[#f39c12]">
+            <Card className="p-5 sm:p-6 bg-[#34495e] border border-[#26a69a]/20 shadow-md rounded-xl sm:rounded-2xl">
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 flex items-center gap-2 text-[#f39c12]">
                 <BookOpen className="h-5 w-5" /> Penjelasan Konsep
               </h3>
-              <p className="text-gray-300 mb-4 leading-relaxed">
+              <p className="text-gray-300 mb-4 leading-relaxed text-sm sm:text-base">
                 {selectedTopic.content.explanation}
               </p>
               <ul className="space-y-2">
                 {selectedTopic.content.keyPoints.map((point, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-[#26a69a] mt-0.5" />
-                    <span className="text-gray-300">{point}</span>
+                    <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-[#26a69a] mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm sm:text-base">
+                      {point}
+                    </span>
                   </li>
                 ))}
               </ul>
             </Card>
 
             {/* Video */}
-            <Card className="p-6 bg-[#34495e] border border-[#26a69a]/20 rounded-2xl">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[#f39c12]">
+            <Card className="p-5 sm:p-6 bg-[#34495e] border border-[#26a69a]/20 rounded-xl sm:rounded-2xl">
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 flex items-center gap-2 text-[#f39c12]">
                 <Video className="h-5 w-5" /> Video Tutorial
               </h3>
               <div className="aspect-video rounded-lg overflow-hidden shadow-lg border border-[#26a69a]/30">
@@ -487,103 +495,121 @@ const MateriGolang = () => {
             </Card>
 
             {/* Contoh Kode */}
-            <Card className="p-6 bg-[#2c3e50] border border-[#26a69a]/30 rounded-2xl">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[#f39c12]">
+            <Card className="p-4 sm:p-6 bg-[#2c3e50] border border-[#26a69a]/30 rounded-xl sm:rounded-2xl overflow-x-auto">
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 flex items-center gap-2 text-[#f39c12]">
                 <Code className="h-5 w-5" /> Contoh Kode
               </h3>
-              <SyntaxHighlighter
-                language="go"
-                style={{
-                  ...oneDark,
-                  'pre[class*="language-"]': {
-                    background: "#263238",
-                    borderRadius: "0.75rem",
-                    padding: "1.25rem",
-                    fontSize: "0.9rem",
-                  },
-                  "span.token.keyword": { color: "#26a69a" },
-                  "span.token.function": { color: "#f39c12" },
-                  "span.token.string": { color: "#f5b041" },
-                }}
-                showLineNumbers
-                wrapLines
-              >
-                {selectedTopic.content.example}
-              </SyntaxHighlighter>
+              <div className="text-sm sm:text-base">
+                <SyntaxHighlighter
+                  language="go"
+                  style={{
+                    ...oneDark,
+                    'pre[class*="language-"]': {
+                      background: "#263238",
+                      borderRadius: "0.75rem",
+                      padding: "1rem",
+                      fontSize: "0.875rem",
+                      lineHeight: "1.5",
+                      overflowX: "auto",
+                    },
+                    "span.token.keyword": { color: "#26a69a" },
+                    "span.token.function": { color: "#f39c12" },
+                    "span.token.string": { color: "#f5b041" },
+                  }}
+                  showLineNumbers
+                  wrapLongLines
+                  customStyle={{ margin: 0 }}
+                >
+                  {selectedTopic.content.example}
+                </SyntaxHighlighter>
+              </div>
             </Card>
 
             {/* Simulasi */}
-            <Card className="p-6 bg-[#2c3e50] border border-[#26a69a]/30 rounded-2xl">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[#f39c12]">
-                <Terminal className="h-5 w-5" /> Simulasi Output
+            <Card className="p-4 sm:p-6 bg-[#2c3e50] border border-[#26a69a]/30 rounded-xl sm:rounded-2xl overflow-x-auto">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-2 text-[#f39c12]">
+                <Terminal className="h-5 w-5 flex-shrink-0" /> Simulasi Output
               </h3>
-              <SyntaxHighlighter
-                language="go"
-                style={{
-                  ...oneDark,
-                  'pre[class*="language-"]': {
-                    background: "#1e272e",
-                    borderRadius: "0.75rem",
-                    padding: "1.25rem",
-                    fontSize: "0.9rem",
-                  },
-                }}
-                wrapLines
-              >
-                {selectedTopic.content.simulation}
-              </SyntaxHighlighter>
+              <div className="text-xs sm:text-sm">
+                <SyntaxHighlighter
+                  language="go"
+                  style={{
+                    ...oneDark,
+                    'pre[class*="language-"]': {
+                      background: "#1e272e",
+                      borderRadius: "0.75rem",
+                      padding: "0.875rem",
+                      fontSize: "0.875rem",
+                      lineHeight: "1.4",
+                      margin: 0,
+                      overflowX: "auto",
+                    },
+                  }}
+                  showLineNumbers={false}
+                  customStyle={{ margin: 0 }}
+                >
+                  {selectedTopic.content.simulation}
+                </SyntaxHighlighter>
+              </div>
             </Card>
 
             {/* Latihan */}
-            <Card className="p-6 bg-[#2c3e50] border border-[#26a69a]/30 rounded-2xl">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[#f39c12]">
-                <ListChecks className="h-5 w-5" /> Latihan Mandiri
+            <Card className="p-4 sm:p-6 bg-[#2c3e50] border border-[#26a69a]/30 rounded-xl sm:rounded-2xl overflow-x-auto">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-2 text-[#f39c12]">
+                <ListChecks className="h-5 w-5 flex-shrink-0" /> Latihan Mandiri
               </h3>
-              <SyntaxHighlighter
-                language="go"
-                style={{
-                  ...oneDark,
-                  'pre[class*="language-"]': {
-                    background: "#1e272e",
-                    borderRadius: "0.75rem",
-                    padding: "1.25rem",
-                    fontSize: "0.9rem",
-                  },
-                }}
-                wrapLines
-              >
-                {selectedTopic.content.exercise}
-              </SyntaxHighlighter>
+              <div className="text-xs sm:text-sm">
+                <SyntaxHighlighter
+                  language="go"
+                  style={{
+                    ...oneDark,
+                    'pre[class*="language-"]': {
+                      background: "#1e272e",
+                      borderRadius: "0.75rem",
+                      padding: "0.875rem",
+                      fontSize: "0.875rem",
+                      lineHeight: "1.4",
+                      margin: 0,
+                      overflowX: "auto",
+                    },
+                  }}
+                  customStyle={{ margin: 0 }}
+                >
+                  {selectedTopic.content.exercise}
+                </SyntaxHighlighter>
+              </div>
             </Card>
 
             {/* Tips */}
-            <Card className="p-6 bg-[#34495e] border border-[#26a69a]/20 rounded-2xl">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[#f39c12]">
+            <Card className="p-5 sm:p-6 bg-[#34495e] border border-[#26a69a]/20 rounded-xl sm:rounded-2xl">
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 flex items-center gap-2 text-[#f39c12]">
                 <Lightbulb className="h-5 w-5" /> Tips Belajar
               </h3>
               <ul className="space-y-2">
                 {selectedTopic.content.tips.map((tip, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <Sparkles className="h-5 w-5 text-[#26a69a] mt-0.5" />
-                    <span className="text-gray-300">{tip}</span>
+                    <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-[#26a69a] mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm sm:text-base">
+                      {tip}
+                    </span>
                   </li>
                 ))}
               </ul>
             </Card>
 
             {/* Sumber Belajar */}
-            <Card className="p-6 bg-[#34495e] border border-[#26a69a]/20 rounded-2xl">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[#f39c12]">
+            <Card className="p-5 sm:p-6 bg-[#34495e] border border-[#26a69a]/20 rounded-xl sm:rounded-2xl">
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 flex items-center gap-2 text-[#f39c12]">
                 <BookOpen className="h-5 w-5" /> Sumber Belajar Tambahan
               </h3>
               <ul className="space-y-2">
                 {selectedTopic.content.resources.map((res, index) => (
                   <li key={index}>
                     <a
-                      href={res.url}
+                      href={res.url.trim()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-[#26a69a] hover:text-[#f39c12] transition-colors"
+                      className="flex items-center gap-2 text-[#26a69a] hover:text-[#f39c12] transition-colors text-sm sm:text-base"
                     >
                       <ExternalLink className="h-4 w-4" /> {res.title}
                     </a>
@@ -592,13 +618,13 @@ const MateriGolang = () => {
               </ul>
             </Card>
 
-            {/* Navigasi */}
-            <div className="flex flex-wrap justify-between items-center gap-3 pt-8 border-t border-[#26a69a]/30 mt-10 pt-6">
-              {/* Tombol Materi Sebelumnya */}
+            {/* Navigasi Responsif */}
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-[#26a69a]/30 mt-8">
+              {/* Tombol Sebelumnya */}
               {topics.indexOf(selectedTopic) > 0 ? (
                 <Button
                   variant="outline"
-                  className="border-[#26a69a]/40 text-[#26a69a] hover:bg-[#26a69a]/20"
+                  className="w-full sm:w-auto border-[#26a69a]/40 text-[#26a69a] hover:bg-[#26a69a]/20"
                   onClick={() =>
                     setSelectedTopic(topics[topics.indexOf(selectedTopic) - 1])
                   }
@@ -606,20 +632,26 @@ const MateriGolang = () => {
                   ← Materi Sebelumnya
                 </Button>
               ) : (
-                <div className="w-[160px]" /> // placeholder biar layout tetap seimbang
+                <div className="w-full sm:w-[160px]" />
               )}
 
-              {/* Tombol Penjelasan Lengkap */}
-              <Link to="/Materi-lengkap" className="flex justify-center">
-                <Button className="bg-[#34495e] text-[#26a69a] hover:bg-[#26a69a]/20 shadow-md">
+              {/* Tombol Tengah */}
+              <Link
+                to="/Materi-lengkap"
+                className="w-full sm:w-auto flex justify-center"
+              >
+                <Button className="w-full sm:w-auto bg-[#34495e] text-[#26a69a] hover:bg-[#26a69a]/20 shadow-md">
                   <BookOpen className="mr-2 h-4 w-4" />
                   Penjelasan Lengkap
                 </Button>
               </Link>
 
               {/* Tombol Uji Pemahaman */}
-              <Link to={`/kuis?topic=${selectedTopic.id}`}>
-                <Button className="bg-[#26a69a] text-white hover:opacity-90 shadow-md">
+              <Link
+                to={`/kuis?topic=${selectedTopic.id}`}
+                className="w-full sm:w-auto"
+              >
+                <Button className="w-full sm:w-auto bg-[#26a69a] text-white hover:opacity-90 shadow-md">
                   Uji Pemahaman
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
