@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Materi from "./pages/Materi";
 import Kuis from "./pages/Kuis";
 import Latihan from "./pages/Latihan";
+import RobotMissionGame from "./pages/Games";
 import Tentang from "./pages/Tentang";
 import PenjelasanLengkap from "./pages/MateriLengkap";
 import NotFound from "./pages/NotFound";
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/materi-lengkap" element={<PenjelasanLengkap />} />
           <Route path="/kuis" element={<Kuis />} />
           <Route path="/latihan" element={<Latihan />} />
+          <Route path="/games" element={<RobotMissionGame />} />
           <Route path="/tentang" element={<Tentang />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

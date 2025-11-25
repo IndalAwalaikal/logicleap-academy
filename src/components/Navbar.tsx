@@ -11,6 +11,7 @@ const Navbar = () => {
     { name: "Materi", path: "/materi" },
     { name: "Kuis", path: "/kuis" },
     { name: "Latihan", path: "/latihan" },
+    { name: "Coding Game", path: "/games" },
     { name: "Tentang", path: "/tentang" },
   ];
 
