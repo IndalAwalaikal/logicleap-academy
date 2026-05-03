@@ -1,73 +1,114 @@
-# Welcome to your Lovable project
+# Logicleap Academy
 
-## Project info
+Logicleap Academy adalah sebuah platform edukasi interaktif berbasis web yang dibangun untuk memfasilitasi proses pembelajaran melalui materi, latihan, kuis interaktif, hingga permainan (games) edukatif. Aplikasi ini menggunakan teknologi web modern untuk memastikan performa yang cepat, responsif, dan antarmuka yang ramah pengguna.
 
-**URL**: https://lovable.dev/projects/e5ab4c68-3e08-4e57-8d41-ddf02b3c7504
+## 🚀 Fitur Utama
 
-## How can I edit this code?
+- **Materi Pembelajaran (`Materi.tsx`, `MateriLengkap.tsx`)**: Menyajikan materi pembelajaran yang terstruktur dan komprehensif.
+- **Latihan Interaktif (`Latihan.tsx`)**: Modul latihan praktis untuk menguji pemahaman konsep secara langsung.
+- **Sistem Kuis (`Kuis.tsx`)**: Evaluasi pembelajaran melalui sistem kuis yang dinamis.
+- **Games Edukatif (`Games.tsx`)**: Pendekatan *gamification* untuk membuat proses belajar menjadi lebih menyenangkan.
+- **Desain Responsif**: Antarmuka yang beradaptasi dengan baik di berbagai ukuran layar (Desktop, Tablet, dan Mobile) berkat penggunaan Tailwind CSS.
+- **Animasi & Interaktivitas**: Menggunakan pustaka seperti Framer Motion/Tailwind Animate dan efek visual (seperti react-confetti) untuk pengalaman pengguna yang lebih hidup.
+- **Code Editor Terintegrasi**: Menggunakan `@monaco-editor/react` untuk memungkinkan pengguna menulis dan mengeksekusi kode secara langsung di dalam platform.
+- **CI/CD Pipeline Terintegrasi**: Pengujian dan pembangunan aplikasi secara otomatis menggunakan GitHub Actions.
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+Proyek ini dikembangkan menggunakan tumpukan teknologi (tech stack) modern:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e5ab4c68-3e08-4e57-8d41-ddf02b3c7504) and start prompting.
+- **Framework Core:** [React 18](https://reactjs.org/) dengan [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool:** [Vite](https://vitejs.dev/) (menggunakan SWC plugin untuk kompilasi super cepat)
+- **Routing:** [React Router DOM](https://reactrouter.com/) (v6)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) dengan plugin Animate & Typography
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com/) (berbasis Radix UI)
+- **Form Handling:** [React Hook Form](https://react-hook-form.com/) terintegrasi dengan [Zod](https://zod.dev/) untuk validasi skema.
+- **State Management / Data Fetching:** [TanStack React Query](https://tanstack.com/query/latest)
+- **Data Visualization:** [Recharts](https://recharts.org/)
+- **Drag and Drop:** [React DnD](https://react-dnd.github.io/react-dnd/about)
+- **Code Editor:** Monaco Editor
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📂 Struktur Proyek
 
-**Use your preferred IDE**
+```text
+logicleap-academy/
+├── .github/
+│   └── workflows/
+│       └── main.yml        # Konfigurasi CI pipeline GitHub Actions
+├── public/                 # Aset statis public
+├── src/
+│   ├── assets/             # Gambar, ikon, font, dll.
+│   ├── components/         # Komponen UI yang dapat digunakan ulang (shadcn/ui dll)
+│   ├── hooks/              # Custom React Hooks
+│   ├── lib/                # Fungsi utilitas (seperti cn/tailwind-merge)
+│   ├── pages/              # Halaman utama aplikasi (Home, Materi, Kuis, dll)
+│   ├── App.tsx             # Root component & konfigurasi Routing
+│   ├── index.css           # Konfigurasi Tailwind global
+│   └── main.tsx            # Entry point aplikasi
+├── index.html              # Template utama HTML
+├── package.json            # Daftar dependensi & scripts
+├── tailwind.config.ts      # Konfigurasi Tailwind CSS
+├── tsconfig.json           # Konfigurasi TypeScript
+└── vite.config.ts          # Konfigurasi Vite
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🏁 Memulai (Getting Started)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Untuk menjalankan proyek ini secara lokal di mesin Anda, pastikan Anda telah menginstal [Node.js](https://nodejs.org/) (disarankan versi 18 atau 20+) dan `npm`.
 
-Follow these steps:
+### 1. Kloning Repositori
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+git clone <URL_REPOSITORI_ANDA>
+cd logicleap-academy
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 2. Instalasi Dependensi
 
-# Step 3: Install the necessary dependencies.
-npm i
+Instal seluruh paket yang dibutuhkan menggunakan npm:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
+```
+
+### 3. Menjalankan Development Server
+
+Jalankan server Vite untuk pengembangan lokal:
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Aplikasi akan berjalan di `http://localhost:5173/` (atau port lain jika 5173 sedang digunakan).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 4. Build untuk Production
 
-**Use GitHub Codespaces**
+Untuk menghasilkan *bundle* aplikasi yang siap untuk *deployment*:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+```
 
-## What technologies are used for this project?
+Hasil build akan berada di dalam folder `dist/`.
 
-This project is built with:
+## 📜 Daftar Script (NPM Scripts)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `npm run dev`: Menjalankan server pengembangan (HMR aktif).
+- `npm run build`: Membangun aplikasi untuk produksi.
+- `npm run build:dev`: Membangun aplikasi dengan mode development.
+- `npm run lint`: Menjalankan ESLint untuk memeriksa dan menemukan masalah pada kode (kualitas kode).
+- `npm run preview`: Mem-preview hasil build lokal sebelum proses deployment sesungguhnya.
 
-## How can I deploy this project?
+## ⚙️ Continuous Integration (CI/CD)
 
-Simply open [Lovable](https://lovable.dev/projects/e5ab4c68-3e08-4e57-8d41-ddf02b3c7504) and click on Share -> Publish.
+Proyek ini telah dikonfigurasi dengan GitHub Actions untuk CI. 
+Setiap kali ada `push` atau `pull request` ke branch `main`, pipeline secara otomatis akan:
+1. Mempersiapkan Node.js (versi 20).
+2. Menginstal seluruh dependensi (`npm ci`).
+3. Memverifikasi kualitas kode menggunakan ESLint (`npm run lint`).
+4. Memastikan bahwa proses build berjalan dengan sukses (`npm run build`).
 
-## Can I connect a custom domain to my Lovable project?
+File konfigurasi workflow dapat ditemukan di `.github/workflows/main.yml`.
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+*Dikembangkan untuk Logicleap Academy.*
