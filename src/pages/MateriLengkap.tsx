@@ -25,7 +25,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+impot { Card } from "@/components/ui/card";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import goLang from "react-syntax-highlighter/dist/esm/languages/prism/go";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
