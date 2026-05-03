@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ElementType } from "react";
 import { Link } from "react-router-dom";
 import {
   BookOpen,
@@ -41,7 +41,7 @@ type Topic = {
   description: string;
   level: "beginner" | "intermediate" | "advanced" | "professional";
   duration: string;
-  icon: any;
+  icon: ElementType;
   locked: boolean;
   content: {
     explanation: string;

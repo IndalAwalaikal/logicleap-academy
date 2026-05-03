@@ -705,7 +705,7 @@ const RobotMissionGame = () => {
       console.log("Executing code:", cleanCode);
 
       // Simple interpreter untuk kode Go
-      let lines = cleanCode
+      const lines = cleanCode
         .split("\n")
         .map((line) => line.trim())
         .filter((line) => line && !line.startsWith("//"));
