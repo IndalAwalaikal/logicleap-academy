@@ -18,7 +18,7 @@ const Tentang = () => {
     navigate("/materi");
   };
 
-  cost features = [
+  const features = [
     {
       icon: Target,
       title: "Misi Kami",
