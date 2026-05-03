@@ -26,7 +26,7 @@ import Editor from "@monaco-editor/react";
 type Challenge = {
   id: number;
   title: string;
-  description: string;
+  desciption: string;
   hints: string[];
   difficulty: "easy" | "medium" | "hard";
   timeEstimate: string;
