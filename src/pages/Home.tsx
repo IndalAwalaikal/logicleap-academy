@@ -16,7 +16,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-cont Home = () => {
+const Home = () => {
   const features = [
     {
       icon: BookOpen,
